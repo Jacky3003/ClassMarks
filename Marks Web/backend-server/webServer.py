@@ -1,12 +1,16 @@
-from flask import Flask
+from flask import Flask, request
 import pandas as pd
 import openpyxl as op
 
 app = Flask(__name__)
 
-@app.route("/newMembers")
-def newMembers():
-    return {"newMembers": ["Test", "Test 2", "Test 3"]}
+@app.route("/classAmount")
+def classAmount():
+    return {"classAmount": ["5"]}
+
+@app.route("/classInfo")
+def classInfo():
+    return {"classInfo":["CSCB36"]}
 
 if __name__ == '__main__':
     app.run(debug=True)
