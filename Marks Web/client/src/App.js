@@ -6,7 +6,7 @@ function App(){
   const [numAssignments, setAssignments] = useState([{}])
 
   useEffect(()=>{
-      fetch("/classInfo").then(
+      fetch("/className").then(
         res => res.json()
       ).then(
          className =>{
@@ -18,7 +18,7 @@ function App(){
   ,[])
 
   useEffect(()=>{
-    fetch("/classAmount").then(
+    fetch("/classMarks").then(
       res => res.json()
     ).then(
        numAssignments =>{
@@ -32,25 +32,25 @@ function App(){
   return(
     <div>
         {
-          (typeof className.classInfo === 'undefined')?(
+          (typeof className.className === 'undefined')?(
             <h1>Loading...</h1>
           ):
           (
-            className.classInfo.map((classInfo) =>
+            className.className.map((className) =>
               (
-                <h1 key={classInfo.id}>Name of Class: {classInfo}</h1>
+                <h1 key={className.id}>Name of Class: {className}</h1>
               )
             )
           )
         }
         {
-          (typeof numAssignments.classAmount === 'undefined')?(
+          (typeof numAssignments.classMarks === 'undefined')?(
             <h1>Loading...</h1>
           ):
           (
-            numAssignments.classAmount.map((classAmount) =>
+            numAssignments.classMarks.map((classMarks) =>
               (
-                <h1 key={1}>Number of Assignments: {classAmount}</h1>
+                <h1 key={1}>Current Marks: {classMarks}</h1>
               )
             )
           )
