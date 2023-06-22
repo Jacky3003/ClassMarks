@@ -50,7 +50,7 @@ function App(){
           (
             numAssignments.classMarks.map((classMarks) =>
               (
-                <h1 key={1}>Current Marks: {classMarks}</h1>
+                <h1 key={1}>Current Mark: {classMarks}%</h1>
               )
             )
           )
